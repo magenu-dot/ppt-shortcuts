@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPoint Shortcuts – Dark Mode Cheat-Sheet & Add-in</title>
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-hover: #ea580c;
+            --primary-soft: rgba(249, 115, 22, 0.14);
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-hover: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+            --key-bg: #1e293b;
+            --key-border: #334155;
+            --key-shadow: #090d16;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 16px;
+            line-height: 1.45;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        header {
+            background: linear-gradient(135deg, #7c2d12 0%, #c2410c 55%, #ea580c 100%);
+            color: #fff;
+            padding: 20px 22px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+        }
+        .header-text h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .header-text p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.88);
+        }
+        .os-switch {
+            display: flex;
+            background: rgba(11, 15, 25, 0.45);
+            padding: 4px;
+            border-radius: 8px;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .os-btn {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .os-btn.active {
+            background: #0f172a;
+            color: #fb923c;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+        }
+        .toolbar {
+            background: var(--surface);
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .search-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 9px 13px;
+            background: #0b0f19;
+            color: var(--text);
+            border: 1px solid var(--key-border);
+            border-radius: 7px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .search-input::placeholder {
+            color: #64748b;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
+        }
+        .fav-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border: 1px solid var(--key-border);
+            border-radius: 7px;
+            background: #0b0f19;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-muted);
+            user-select: none;
+            transition: all 0.15s;
+        }
+        .fav-toggle:hover {
+            border-color: #fbbf24;
+            color: #fde68a;
+        }
+        .fav-toggle.active {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: #f59e0b;
+            color: #fbbf24;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tab-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: #0b0f19;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: #fdba74;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #0b0f19;
+            border-color: var(--primary);
+            font-weight: 700;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 12px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background-color 0.15s;
+            cursor: pointer;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            background-color: var(--surface-hover);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            border-color: #334155;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .cat-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #fb923c;
+            background: var(--primary-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(249, 115, 22, 0.25);
+        }
+        .star-btn {
+            background: none;
+            border: none;
+            font-size: 1.15rem;
+            cursor: pointer;
+            color: #475569;
+            line-height: 1;
+            padding: 0 2px;
+            transition: color 0.15s, transform 0.15s;
+        }
+        .star-btn:hover {
+            transform: scale(1.15);
+            color: #fbbf24;
+        }
+        .star-btn.starred {
+            color: #fbbf24;
+        }
+        .action-title {
+            font-size: 0.96rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-top: 5px;
+        }
+        .action-desc {
+            font-size: 0.81rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+        .keys-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+            padding-top: 9px;
+            border-top: 1px dashed var(--border);
+        }
+        kbd {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #e2e8f0;
+            background-color: var(--key-bg);
+            border: 1px solid var(--key-border);
+            border-bottom-width: 3px;
+            border-bottom-color: var(--key-shadow);
+            border-radius: 6px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+        .plus {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f97316;
+            color: #0b0f19;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            background: var(--surface);
+            border-radius: 10px;
+            border: 1px dashed var(--key-border);
+        }
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .grid { grid-template-columns: 1fr; }
+            header { padding: 14px 16px; }
+            .header-text h1 { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-text">
+                <h1>PowerPoint Tastenkürzel (Dark Mode)</h1>
+                <p>Klicke auf eine Karte zum Kopieren • Sternchen setzen für eigene Favoriten</p>
+            </div>
+            <div class="os-switch" role="group" aria-label="Betriebssystem wählen">
+                <button class="os-btn active" id="btnWin" onclick="setOS('win')">Windows</button>
+                <button class="os-btn" id="btnMac" onclick="setOS('mac')">macOS</button>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <div class="search-row">
+                <input type="text" id="searchInput" class="search-input" placeholder="Nach Funktion oder Taste suchen (z. B. Fett, Schriftgröße, Duplizieren, F5)...">
+                <button id="favFilterBtn" class="fav-toggle" onclick="toggleFavFilter()">★ Nur Favoriten</button>
+            </div>
+            <div class="tabs" id="categoryTabs"></div>
+        </div>
+
+        <div id="cardsGrid" class="grid"></div>
+    </div>
+
+    <div id="toast" class="toast">Tastenkürzel in die Zwischenablage kopiert!</div>
+
+    <script>
+        const shortcuts = [{"category": "Textformatierung", "action": "Text fett formatieren", "win": ["Strg", "B"], "mac": ["⌘ Cmd", "B"], "popular": true, "desc": "Schaltet fette Schrift für markierten Text ein oder aus."}, {"category": "Textformatierung", "action": "Text kursiv formatieren", "win": ["Strg", "I"], "mac": ["⌘ Cmd", "I"], "popular": true, "desc": "Schaltet kursive Schrift (Italic) ein oder aus."}, {"category": "Textformatierung", "action": "Text unterstreichen", "win": ["Strg", "U"], "mac": ["⌘ Cmd", "U"], "popular": true, "desc": "Unterstreicht den markierten Text."}, {"category": "Textformatierung", "action": "Schriftgröße vergrößern", "win": ["Strg", "Umschalt", ">"], "mac": ["⌘ Cmd", "Umschalt", ">"], "popular": true, "desc": "Vergrößert die Schrift um eine Stufe. (Alternativ Win: Strg + Umschalt + P, dann Zahl tippen)"}, {"category": "Textformatierung", "action": "Schriftgröße verkleinern", "win": ["Strg", "Umschalt", "<"], "mac": ["⌘ Cmd", "Umschalt", "<"], "popular": true, "desc": "Verkleinert die Schrift um eine Stufe."}, {"category": "Textformatierung", "action": "Schriftart-Menü öffnen", "win": ["Strg", "Umschalt", "F"], "mac": ["⌘ Cmd", "T"], "popular": false, "desc": "Öffnet direkt das Schriftarten- bzw. Zeichenformatierungsfenster."}, {"category": "Textformatierung", "action": "Text linksbündig ausrichten", "win": ["Strg", "L"], "mac": ["⌘ Cmd", "L"], "popular": false, "desc": "Richtet den Absatz linksbündig aus."}, {"category": "Textformatierung", "action": "Text zentrieren", "win": ["Strg", "E"], "mac": ["⌘ Cmd", "E"], "popular": true, "desc": "Zentriert den Text horizontal."}, {"category": "Textformatierung", "action": "Text rechtsbündig ausrichten", "win": ["Strg", "R"], "mac": ["⌘ Cmd", "R"], "popular": false, "desc": "Richtet den Absatz rechtsbündig aus."}, {"category": "Textformatierung", "action": "Blocksatz", "win": ["Strg", "J"], "mac": ["⌘ Cmd", "J"], "popular": false, "desc": "Formatiert den Absatz im Blocksatz."}, {"category": "Textformatierung", "action": "Groß-/Kleinschreibung wechseln", "win": ["Umschalt", "F3"], "mac": ["Umschalt", "F3"], "popular": false, "desc": "Wechselt zwischen GROSSBUCHSTABEN, kleinbuchstaben und Großem Anfangsbuchstaben."}, {"category": "Textformatierung", "action": "Tiefgestellt (Subscript)", "win": ["Strg", "+"], "mac": ["⌘ Cmd", "Umschalt", "-"], "popular": false, "desc": "Stellt markierte Zeichen tief (z. B. H₂O)."}, {"category": "Textformatierung", "action": "Hochgestellt (Superscript)", "win": ["Strg", "Umschalt", "+"], "mac": ["⌘ Cmd", "Umschalt", "+"], "popular": false, "desc": "Stellt markierte Zeichen hoch (z. B. m²)."}, {"category": "Textformatierung", "action": "Formatierung übertragen (Kopieren)", "win": ["Strg", "Umschalt", "C"], "mac": ["⌘ Cmd", "Umschalt", "C"], "popular": true, "desc": "Kopiert den Stil (Farbe, Schrift, Rahmen) eines Objekts oder Textes."}, {"category": "Textformatierung", "action": "Formatierung einfügen", "win": ["Strg", "Umschalt", "V"], "mac": ["⌘ Cmd", "Umschalt", "V"], "popular": true, "desc": "Wendet den zuvor kopierten Stil auf das Zielobjekt an – extrem zeitsparend!"}, {"category": "Textformatierung", "action": "Hyperlink einfügen", "win": ["Strg", "K"], "mac": ["⌘ Cmd", "K"], "popular": false, "desc": "Fügt einen Link zu einer Webseite oder einer anderen Folie ein."}, {"category": "Objekte & Layout", "action": "Objekt / Folie duplizieren", "win": ["Strg", "D"], "mac": ["⌘ Cmd", "D"], "popular": true, "desc": "Dupliziert markierte Formen, Bilder oder ganze Folien direkt in einem Schritt."}, {"category": "Objekte & Layout", "action": "Objekte gruppieren", "win": ["Strg", "G"], "mac": ["⌘ Cmd", "Option", "G"], "popular": true, "desc": "Fasst mehrere markierte Elemente zu einer Gruppe zusammen."}, {"category": "Objekte & Layout", "action": "Gruppierung aufheben", "win": ["Strg", "Umschalt", "G"], "mac": ["⌘ Cmd", "Umschalt", "Option", "G"], "popular": true, "desc": "Löst eine bestehende Gruppe wieder in Einzelteile auf."}, {"category": "Objekte & Layout", "action": "Objekt eine Ebene nach vorne", "win": ["Strg", "Umschalt", "+"], "mac": ["⌘ Cmd", "Umschalt", "F"], "popular": false, "desc": "Bringt das Objekt in der Ebenen-Reihenfolge weiter nach vorne."}, {"category": "Objekte & Layout", "action": "Objekt eine Ebene nach hinten", "win": ["Strg", "#"], "mac": ["⌘ Cmd", "Umschalt", "B"], "popular": false, "desc": "Schiebt das Objekt in der Ebenen-Reihenfolge weiter nach hinten."}, {"category": "Objekte & Layout", "action": "Führungslinien ein-/ausblenden", "win": ["Alt", "F9"], "mac": ["Ctrl", "Option", "⌘ Cmd", "G"], "popular": false, "desc": "Zeigt statische Ausrichtungslinien auf der Folie an."}, {"category": "Objekte & Layout", "action": "Gitternetzlinien ein-/ausblenden", "win": ["Umschalt", "F9"], "mac": ["Umschalt", "F9"], "popular": false, "desc": "Blendet das feine Raster zur exakten Positionierung ein oder aus."}, {"category": "Objekte & Layout", "action": "Gerade Linie / Proportionen halten", "win": ["Umschalt", "Ziehen"], "mac": ["Umschalt", "Ziehen"], "popular": true, "desc": "Beim Skalieren oder Verschieben bleiben Seitenverhältnis bzw. 90°-Achse exakt erhalten."}, {"category": "Objekte & Layout", "action": "Aus der Mitte heraus skalieren", "win": ["Strg", "Ziehen"], "mac": ["Option", "Ziehen"], "popular": false, "desc": "Vergrößert oder verkleinert ein Objekt symmetrisch um seinen Mittelpunkt."}, {"category": "Objekte & Layout", "action": "Schnell-Duplizieren per Maus", "win": ["Strg", "Ziehen"], "mac": ["Option", "Ziehen"], "popular": true, "desc": "Zieht eine Kopie des Objekts an die gewünschte Stelle (+ Umschalt für exakte Linie)."}, {"category": "Folien & Navigation", "action": "Neue Folie einfügen", "win": ["Strg", "M"], "mac": ["⌘ Cmd", "Umschalt", "N"], "popular": true, "desc": "Erstellt sofort eine neue Folie unterhalb der aktuellen Folie."}, {"category": "Folien & Navigation", "action": "Alles auf der Folie markieren", "win": ["Strg", "A"], "mac": ["⌘ Cmd", "A"], "popular": true, "desc": "Markiert alle Objekte auf der Folie (oder alle Folien in der Seitenleiste)."}, {"category": "Folien & Navigation", "action": "Rückgängig machen", "win": ["Strg", "Z"], "mac": ["⌘ Cmd", "Z"], "popular": true, "desc": "Macht den letzten Arbeitsschritt rückgängig."}, {"category": "Folien & Navigation", "action": "Wiederholen / Wiederherstellen", "win": ["Strg", "Y"], "mac": ["⌘ Cmd", "Y"], "popular": true, "desc": "Wiederholt die letzte Aktion (z. B. erneutes Duplizieren mit exaktem Abstand!)."}, {"category": "Folien & Navigation", "action": "Textfeld verlassen / Objekt wählen", "win": ["Esc"], "mac": ["Esc"], "popular": true, "desc": "Beendet die Texteingabe und markiert den Rahmen des Textfelds selbst."}, {"category": "Folien & Navigation", "action": "Zum nächsten Element wechseln", "win": ["Tab"], "mac": ["Tab"], "popular": false, "desc": "Springt zum nächsten Objekt auf der Folie (Shift + Tab springt zurück)."}, {"category": "Folien & Navigation", "action": "Suchen / Ersetzen", "win": ["Strg", "F"], "mac": ["⌘ Cmd", "F"], "popular": false, "desc": "Sucht nach Begriffen in der gesamten Präsentation."}, {"category": "Folien & Navigation", "action": "Speichern", "win": ["Strg", "S"], "mac": ["⌘ Cmd", "S"], "popular": true, "desc": "Speichert die aktuelle Präsentation."}, {"category": "Präsentationsmodus", "action": "Präsentation ab erster Folie starten", "win": ["F5"], "mac": ["⌘ Cmd", "Umschalt", "Enter"], "popular": true, "desc": "Startet die Bildschirmpräsentation von Beginn an."}, {"category": "Präsentationsmodus", "action": "Präsentation ab aktueller Folie starten", "win": ["Umschalt", "F5"], "mac": ["⌘ Cmd", "Enter"], "popular": true, "desc": "Startet die Präsentation direkt bei der gerade bearbeiteten Folie."}, {"category": "Präsentationsmodus", "action": "Bildschirm schwarz schalten", "win": ["B"], "mac": ["B"], "popular": true, "desc": "Blendet die Folie schwarz aus (lenkt Aufmerksamkeit auf dich). Erneut B drücken zum Zurückkehren."}, {"category": "Präsentationsmodus", "action": "Bildschirm weiß schalten", "win": ["W"], "mac": ["W"], "popular": false, "desc": "Blendet die Folie weiß aus. Erneut W drücken zum Zurückkehren."}, {"category": "Präsentationsmodus", "action": "Laserpointer aktivieren", "win": ["Strg", "L"], "mac": ["⌘ Cmd", "L"], "popular": true, "desc": "Verwandelt den Mauszeiger im Vollbildmodus in einen roten Laserpointer."}, {"category": "Präsentationsmodus", "action": "Stift zum Zeichnen aktivieren", "win": ["Strg", "P"], "mac": ["⌘ Cmd", "P"], "popular": false, "desc": "Erlaubt handschriftliche Notizen direkt auf der Folie während des Vortrags."}, {"category": "Präsentationsmodus", "action": "Alle Folien als Übersicht zeigen", "win": ["G"], "mac": ["G"], "popular": false, "desc": "Zeigt während der Präsentation alle Folien im Raster zum schnellen Springen."}, {"category": "Präsentationsmodus", "action": "Direkt zu Folie Nr. X springen", "win": ["Zahl", "Enter"], "mac": ["Zahl", "Enter"], "popular": false, "desc": "Tippe z. B. 5 und Enter, um im Vortrag direkt zu Folie 5 zu springen."}];
+        let currentOS = navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'mac' : 'win';
+        let activeCategory = 'Alle';
+        let onlyFavorites = false;
+
+        let favorites = JSON.parse(localStorage.getItem('ppt_shortcut_favs') || 'null');
+        if (!favorites) {
+            favorites = shortcuts.filter(s => s.popular).map(s => s.action);
+            localStorage.setItem('ppt_shortcut_favs', JSON.stringify(favorites));
+        }
+
+        function setOS(os) {
+            currentOS = os;
+            document.getElementById('btnWin').classList.toggle('active', os === 'win');
+            document.getElementById('btnMac').classList.toggle('active', os === 'mac');
+            render();
+        }
+
+        function toggleFavFilter() {
+            onlyFavorites = !onlyFavorites;
+            document.getElementById('favFilterBtn').classList.toggle('active', onlyFavorites);
+            render();
+        }
+
+        function toggleStar(event, action) {
+            event.stopPropagation();
+            if (favorites.includes(action)) {
+                favorites = favorites.filter(f => f !== action);
+            } else {
+                favorites.push(action);
+            }
+            localStorage.setItem('ppt_shortcut_favs', JSON.stringify(favorites));
+            render();
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            toast.textContent = text;
+            toast.classList.add('show');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function copyShortcut(item) {
+            const keys = item[currentOS].join(' + ');
+            const text = `${item.action}: ${keys}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).catch(() => {});
+            }
+            showToast(`Kopiert: ${text}`);
+        }
+
+        function renderTabs() {
+            const categories = ['Alle', ...new Set(shortcuts.map(s => s.category))];
+            const tabsEl = document.getElementById('categoryTabs');
+            tabsEl.innerHTML = categories.map(cat => `
+                <button class="tab-btn ${activeCategory === cat ? 'active' : ''}" onclick="selectCategory('${cat}')">${cat}</button>
+            `).join('');
+        }
+
+        function selectCategory(cat) {
+            activeCategory = cat;
+            renderTabs();
+            render();
+        }
+
+        function render() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const grid = document.getElementById('cardsGrid');
+
+            const filtered = shortcuts.filter(item => {
+                const matchesCat = activeCategory === 'Alle' || item.category === activeCategory;
+                const matchesFav = !onlyFavorites || favorites.includes(item.action);
+                const keyStr = item[currentOS].join(' ').toLowerCase();
+                const matchesQuery = !query ||
+                    item.action.toLowerCase().includes(query) ||
+                    item.desc.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query) ||
+                    keyStr.includes(query);
+                return matchesCat && matchesFav && matchesQuery;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">Keine passenden Shortcuts gefunden. Passe deine Suche oder den Favoriten-Filter an.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map((item) => {
+                const isStarred = favorites.includes(item.action);
+                const keysHtml = item[currentOS].map(k => `<kbd>${k}</kbd>`).join('<span class="plus">+</span>');
+                return `
+                    <div class="card" onclick='copyShortcut(${JSON.stringify(item).replace(/'/g, "&#39;")})'>
+                        <div>
+                            <div class="card-header">
+                                <span class="cat-badge">${item.category}</span>
+                                <button class="star-btn ${isStarred ? 'starred' : ''}" title="Als Favorit markieren" onclick="toggleStar(event, '${item.action.replace(/'/g, "\'")}')">
+                                    ${isStarred ? '★' : '☆'}
+                                </button>
+                            </div>
+                            <div class="action-title">${item.action}</div>
+                            <div class="action-desc">${item.desc}</div>
+                        </div>
+                        <div class="keys-row">
+                            ${keysHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', render);
+
+        setOS(currentOS);
+        renderTabs();
+    </script>
+</body>
+</html>
